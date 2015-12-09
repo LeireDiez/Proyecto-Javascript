@@ -29,7 +29,6 @@ app.get('/js/:page', function (req, res) {
 
 
 app.get('/agenda/:nombre', function (req, res) {
-	console.log("NombreGet: " + req.params.nombre);
 	var telefono = '';
 	//Busca el teléfono del nombre		
 	for (var i = 0; i < datos.length; i++) {
@@ -46,8 +45,6 @@ app.get('/agenda/:nombre', function (req, res) {
 });
 
 app.put('/agenda/:nombre', function( req,res ) {
-    console.log("NombrePut: " + req.params.nombre);
-	console.log("TelefonoS: " + req.body.telefono);
 	var telefono = '';
 	//Busca el teléfono del nombre		
 	for (var i = 0; i < datos.length; i++) {
@@ -62,8 +59,6 @@ app.put('/agenda/:nombre', function( req,res ) {
 });
 
 app.post('/agenda/:nombre', function (req, res) {   
-    console.log("NombrePost: " + req.params.nombre);
-	console.log("TelefonoS: " + req.body.telefono);
 	datos.push({"nombre": req.params.nombre, "telefono": req.body.telefono});
 	var contentFile = JSON.stringify(datos);
 	fs.writeFileSync('./file.txt', contentFile, 'utf8');
